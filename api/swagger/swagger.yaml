@@ -46,6 +46,12 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
+  Todo:
+    type: "object" 
+    properties: 
+      todo_id: 
+        type: "integar"
+        
   HelloWorldResponse:
     required:
       - message
