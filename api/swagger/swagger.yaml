@@ -51,7 +51,20 @@ definitions:
     properties: 
       todo_id: 
         type: "integar"
-        
+        description: "id for todo"
+      todo: 
+        type: "string"
+        description: "The todo item"
+      datecreated: 
+        type: "string"
+        format: "date-time"
+        description: "Timestamp when the todo is created and such"
+      author: 
+        type: "string"
+        description: "Person who has created the file"
+      completed:
+        type: "boolean"
+        description: "Time at which the app has been completed and such"
   HelloWorldResponse:
     required:
       - message
