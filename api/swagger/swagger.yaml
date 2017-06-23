@@ -30,6 +30,22 @@ paths:
             type: "array"
             items: 
               $ref: "#/definitions/Code"
+    post: 
+      description: "Add a new pixel grid"
+      operationId: "AddGrid"
+      produces:
+      - "application/json"
+      parameters: 
+      - in: "body"
+        name: "grid"
+        description: "The grid to be added"
+        required: true
+        schema: 
+          $ref: "#/definitions/Code"
+      responses: 
+        200: 
+          description: "Succesful grid add"
+      x-swagger-router-controller: "AddGrid"    
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
