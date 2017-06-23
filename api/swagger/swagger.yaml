@@ -37,8 +37,8 @@ definitions:
   Code:
     type: "object" 
     properties: 
-      grid_id: 
-        type: "integar"
+      grid_id:
+        type: "integer"
         description: "id for code illustration"
       grid: 
         type: "string"
