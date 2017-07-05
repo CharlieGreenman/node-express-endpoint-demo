@@ -64,6 +64,19 @@ paths:
           description: "Grid response"
           schema: 
             $ref: "#/definitions/Code"
+    delete: 
+      description: "Delete a grid by Id"
+      operationId: "DeleteGridById"
+      parameters: 
+      - name: "id"
+        in: "path"
+        description: "ID of the grid to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        204: 
+          description: "todo deleted"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
