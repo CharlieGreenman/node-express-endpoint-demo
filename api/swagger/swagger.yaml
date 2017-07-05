@@ -46,6 +46,24 @@ paths:
         200: 
           description: "Succesful grid add"
       x-swagger-router-controller: "AddGrid"    
+  /grid/{id}:
+    get: 
+      description: "Retrieve a single grid by id"
+      operationId: "FindGridById"
+      produces: 
+      - "application/json"
+      parameters: 
+      - name: "id"
+        in: "path"
+        description: "ID of the grid to get"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses: 
+        200: 
+          description: "Grid response"
+          schema: 
+            $ref: "#/definitions/Code"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
