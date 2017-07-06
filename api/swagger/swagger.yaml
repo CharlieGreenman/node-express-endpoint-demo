@@ -30,6 +30,7 @@ paths:
             type: "array"
             items: 
               $ref: "#/definitions/Code"
+      x-swagger-router-controller: "GetAllPixelGrids"  
     post: 
       description: "Add a new pixel grid"
       operationId: "AddGrid"
