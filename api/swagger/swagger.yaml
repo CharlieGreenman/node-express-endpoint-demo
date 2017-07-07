@@ -4,9 +4,9 @@ info:
   title: Pixel Service
 # during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths 
+# basePath prefixes all resource paths
 basePath: /
-# 
+#
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -18,70 +18,71 @@ consumes:
 produces:
   - application/json
 paths:
-  /: 
-    get: 
+  /:
+    get:
       description: "This endpoint returns all grids available for specific user"
       operationId: "GetAllPixelGrids"
       parameters: []
-      responses: 
-        200: 
+      responses:
+        200:
           description: "An array of pixel grids"
-          schema: 
+          schema:
             type: "array"
-            items: 
+            items:
               $ref: "#/definitions/Code"
-      x-swagger-router-controller: "GetAllPixelGrids"  
-    post: 
+      x-swagger-router-controller: "GetAllPixelGrids"
+    post:
       description: "Add a new pixel grid"
       operationId: "AddGrid"
       produces:
       - "application/json"
-      parameters: 
+      parameters:
       - in: "body"
         name: "grid"
         description: "The grid to be added"
         required: true
-        schema: 
+        schema:
           $ref: "#/definitions/Code"
-      responses: 
-        200: 
+      responses:
+        200:
           description: "Succesful grid add"
-      x-swagger-router-controller: "AddGrid"    
+      x-swagger-router-controller: "AddGrid"
   /grid/{id}:
-    get: 
+    get:
       description: "Retrieve a single grid by id"
-      operationId: "FindGridById"
-      produces: 
+      operationId: "getGridById"
+      produces:
       - "application/json"
-      parameters: 
+      parameters:
       - name: "id"
         in: "path"
         description: "ID of the grid to get"
         required: true
         type: "integer"
         format: "int64"
-      responses: 
-        200: 
+      responses:
+        200:
           description: "Grid response"
-          schema: 
+          schema:
             $ref: "#/definitions/Code"
-    delete: 
+      x-swagger-router-controller: "getGridById"  
+    delete:
       description: "Delete a grid by Id"
       operationId: "DeleteGridById"
-      parameters: 
+      parameters:
       - name: "id"
         in: "path"
         description: "ID of the grid to delete"
         required: true
         type: "integer"
         format: "int64"
-      responses: 
-        204: 
+      responses:
+        204:
           description: "todo deleted"
-    put: 
+    put:
       description: "Update a single grid by id"
       operationId: "UpdateGridById"
-      parameters: 
+      parameters:
       - name: "id"
         in: "path"
         description: "ID of the grid to delete"
@@ -92,33 +93,33 @@ paths:
         in: "body"
         description: "The updated grid"
         required: true
-        schema: 
+        schema:
           $ref: "#/definitions/Code"
-      responses: 
+      responses:
         200:
           description: "Todo updated"
-        400: 
+        400:
           description: "An error happened, rejoice!"
-            
-      
+
+
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
   Code:
-    type: "object" 
-    properties: 
+    type: "object"
+    properties:
       grid_id:
         type: "integer"
         description: "id for code illustration"
-      grid: 
+      grid:
         type: "string"
         description: "The name of grid item"
-      datecreated: 
+      datecreated:
         type: "string"
         format: "date-time"
         description: "Timestamp when the grid illustration is"
-      author: 
+      author:
         type: "string"
         description: "Person who has created the grid"
       completed:
