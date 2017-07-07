@@ -10,6 +10,12 @@ function GetAllPixelGrids(req, res) {
     index:'grid',
     type:'grid',
     q: '*',
-    // _sourceInclude: 'todo_id, tod
+    _sourceInclude: 'grid_id', 'grid', 'completed', 'author'
+  }, function(error, respons){
+    if(error) {
+      res.end(JSON.stringify(error));
+    } else {
+      
+    }
   })
 }
