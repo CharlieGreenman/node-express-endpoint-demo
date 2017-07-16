@@ -10,8 +10,8 @@ function GetAllPixelGrids(req, res) {
     index:'grid',
     type:'grid',
     q: '*',
-    _sourceInclude: 'grid_id, grid, datecreated, author, completed' 
-  }, function(error, respons){
+    _sourceInclude: 'grid_id, grid, datecreated, author, completed'
+  }, function(error, response){
     if(error) {
       res.end(JSON.stringify(error));
     } else {
@@ -19,7 +19,6 @@ function GetAllPixelGrids(req, res) {
       results = response.hits.hits.map(function(hit){ return hit._source });
       res.header('Content-Type', 'application/json');
       res.end(JSON.stringify(results));
-      monitor(start, 'GetAllPixelGrids');
     }
   })
 }
